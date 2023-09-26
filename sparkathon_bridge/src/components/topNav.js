@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './topNav.css';
 import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
-import gnosisLogo from "../images/gnosisLogo.png"
+import SurvowlHori from "../images/SurvOwlHori.png"
 
 
 const domain = window.location.host;
@@ -100,7 +100,7 @@ async function displayENSProfile(address) {
     <div className='wrap'>
       <div className="links">
         <Link to="/home">
-          <img src={gnosisLogo} className='logo'></img>
+          <img src={SurvowlHori} className='logo'></img>
         </Link>
       </div>
 
