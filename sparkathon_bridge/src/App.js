@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Main from "./pages/home";
-import NavigationBar from './components/topNav.js'
+import Home from "./pages/home";
+import Landing from "./pages/landing"
 
 function App() {
   return (
     <Router>
-      <NavigationBar/>
       <Routes>
-        <Route path="/" element={<Main />} /> 
+        <Route path="/" element={<Landing />} /> 
+        <Route path="/home" element={<Home />} /> 
       </Routes>
     </Router>
   );

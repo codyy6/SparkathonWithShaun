@@ -1,7 +1,13 @@
-.center-items {
+.wrap{
   display: flex;
-  justify-content: center;
+  position: relative;
+}
+
+.links {
+  display: flex;
   align-items: center; /* Vertically center items */
+  margin: auto;
+  padding: 10px;
 }
 
 .custom-link {
@@ -12,8 +18,37 @@
   transition: 0.3s ease-in-out;
   border-radius: 10px;
   margin: 1rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .custom-link:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.end-item{
+  position: relative;
+  padding: 10px;
+  justify-content: end;
+  border-radius: 10px;
+  margin-right: 1rem;
+  top:0;
+  right: 0;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.end-item:hover{
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.dropdown-wrap{
+  position: fixed;
+}
+
+.dropdown-content {
+  color: #f9f9f9;
+  text-decoration: none;
+}
+

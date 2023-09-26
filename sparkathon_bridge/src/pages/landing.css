@@ -1,0 +1,32 @@
+.connect{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    margin-left: 4rem;
+}
+
+.connect:hover{
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.gnosis{
+    height: 50px;
+    margin-left: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally within each container */
+    justify-content: center; /* Center items vertically within each container */
+    height: 100vh; /* Take up the full viewport height */
+  }
+  
+.center{
+    display: flex;
+    align-items: center; /* Center items horizontally within this container */
+  }
+  
