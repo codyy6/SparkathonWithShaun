@@ -1,12 +1,14 @@
-.wrap{
+.wrap {
   display: flex;
   position: relative;
+  justify-content: space-between; /* Aligns items to the start and end of the parent div */
 }
 
 .links {
   display: flex;
-  align-items: center; /* Vertically center items */
-  margin: auto;
+  align-items: start; /* Vertically center items */
+  margin-left: 2rem;
+  margin-top: 0.5rem;
   padding: 10px;
 }
 
@@ -43,8 +45,21 @@
   cursor: pointer;
 }
 
-.dropdown-wrap{
+.dropdown{
+  background: #6c9499;
   position: fixed;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.dropdown-wrap{
+  transition: ease-in-out 0.3s;
+  padding: 1px 5px 1px 5px;
+  border-radius: 10px;
+}
+
+.dropdown-wrap:hover{
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .dropdown-content {
@@ -52,3 +67,7 @@
   text-decoration: none;
 }
 
+.logo{
+  justify-content: start;
+  height: 40px;
+}

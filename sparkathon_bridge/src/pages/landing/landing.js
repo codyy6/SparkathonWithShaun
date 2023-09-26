@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
-import Logo from "../images/survowlLogo.png";
-import gnosisLogo from "../images/gnosisLogo.png";
+import Logo from "../../images/survowlLogo.png";
+import gnosisLogo from "../../images/gnosisLogo.png";
 import "./landing.css";
 
 const domain = window.location.host;

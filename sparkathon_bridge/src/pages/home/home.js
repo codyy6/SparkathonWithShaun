@@ -1,8 +1,8 @@
-import "./home.css";
-import NavigationBar from '../components/topNav.js'
+import NavigationBar from '../../components/topNav'
 import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import { BrowserProvider } from 'ethers';
-
+import { Link } from 'react-router-dom'; // Import the Link component
+import "./home.css";
 
 function Main() {
   const [address, setAddress] = useState("");
@@ -38,16 +38,24 @@ async function getInformation() {
 async function displayENSProfile(address) {
   const provider = new BrowserProvider(window.ethereum);
   const ensName = await provider.lookupAddress(address);
-  console.log(ensName);
   setEnsName(ensName); // Update the state with the ENS name
 }
-
-
     return ( 
       <div>
         <NavigationBar />
-        <div>
-          <p>Testing</p>
+        <div className="container">
+          <div className="card">
+            <Link to="/somewhere" className='cardLink'>
+              <h3><i><u>Gnosis Survey by Gnosis Team</u></i></h3>
+              <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
+            </Link>
+            </div>
+          <div className="card">
+          <Link to="/somewhere" className='cardLink'>
+            <h3><i><u>POAP Survey by POAP Team</u></i></h3>
+            <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
+          </Link>
+          </div>
         </div>
       </div>
     );
