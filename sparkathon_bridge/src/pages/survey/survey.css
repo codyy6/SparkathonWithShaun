@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally within each container */
+    justify-content: center; /* Center items vertically within each container */
+    margin: 3rem 10rem;
+    padding: 10px;
+    border-radius: 30px;
+  }
+  
+  .card {
+    background: white;
+    width: 25%;
+    border-radius: 20px;
+    padding: 10px;
+    min-height: 40px;
+    min-width: 20px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin: 2rem auto; /* Center horizontally by using margin: 0 auto; */
+  }
+  
+  
+  
+  .cardLink{
+  text-decoration: none;
+  color: black;
+  }
+  
+  .bg {
+    background-color: #6c9499; /* Replace with your desired color */
+  }
+  
+  .button {
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: block; /* Make the button a block-level element */
+    margin: 0 auto; /* Center horizontally and vertically */
+  }
+  
+  .header{
+    text-align: center;
+  }
