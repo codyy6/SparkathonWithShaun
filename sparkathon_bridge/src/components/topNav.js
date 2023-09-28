@@ -32,6 +32,7 @@ async function createSiweMessage(address, statement) {
 
 
 function TopNav() {
+
   const [userAddress, setUserAddress] = useState(""); // Rename to userAddress
   const [ensName, setEnsName] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for controlling dropdown visibility
