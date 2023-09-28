@@ -79,23 +79,23 @@ async function displayENSProfile(address) {
     );
   }
 
-  function DropdownMenu() {
-  return (
-    <div className='dropdown'>
-      <div className='dropdown-wrap'>
-        <Link to="/userprofile" className="dropdown-content">
-          <p> Profile </p>
-        </Link>
+  function DropdownMenu({ address }) {
+    return (
+      <div className='dropdown'>
+        <div className='dropdown-wrap'>
+          <a href={`https://app.poap.xyz/scan/${address}`} target="_blank" rel="noopener noreferrer" className="dropdown-content">
+            <p>Profile</p>
+          </a>
+        </div>
+        <div className='dropdown-wrap'>
+          <Link to="/" className="dropdown-content">
+            <p>Sign Out</p>
+          </Link>
+        </div>
       </div>
-      <div className='dropdown-wrap'>
-        <Link to="/" className="dropdown-content">
-          <p> Sign Out </p>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
+    );
+  }
+  
   return (
     <div className='wrap'>
       <div className="links">

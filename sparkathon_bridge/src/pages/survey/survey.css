@@ -8,28 +8,40 @@
     border-radius: 30px;
   }
   
-  .card {
-    background: white;
-    width: 25%;
+  .bigcard {
+    background-color: #a68b56;
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 10%;
+    z-index: -1; /* Set a lower z-index to place it behind other cards */
+    text-align: center;
+    margin: 2rem auto; /* Center horizontally by using margin: 0 auto; */
+    border-radius: 20px; /* Add this property for rounded edges */
+  }
+  
+
+  .scard {
+    background: rgb(255, 255, 255);
+    width: 40%; /* Adjust the width as needed */
     border-radius: 20px;
     padding: 10px;
     min-height: 40px;
-    min-width: 20px;
+    min-width: 50px;
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-align: center;
     margin: 2rem auto; /* Center horizontally by using margin: 0 auto; */
-  }
-  
-  
-  
+}
+
   .cardLink{
   text-decoration: none;
   color: black;
   }
   
   .bg {
-    background-color: #6c9499; /* Replace with your desired color */
+    background-color: #6c9499; 
   }
   
   .button {
@@ -39,7 +51,7 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Add transform property for ease-in-out */
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -47,6 +59,26 @@
     margin: 0 auto; /* Center horizontally and vertically */
   }
   
+  .button:hover {
+    background-color: #8ca9ad; /* Change background color on hover */
+    color:white; /* Change text color on hover */
+    transform:scale(1.05); /* Add a slight scaling effect on hover (optional) */
+  }
+  
   .header{
+    color: white;
     text-align: center;
+    font-size: 32px;
+  }
+
+  .paragraph{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .textarea {
+    width: 80%; /* Set the width to 80% of the viewport width */
+    height: 20vh; /* Set the height to 20% of the viewport height */
+    resize: none; /* Prevent resizing by the user */
   }

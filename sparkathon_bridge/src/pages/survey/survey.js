@@ -2,8 +2,9 @@ import React, { useState,useEffect } from 'react';
 import NavigationBar from '../../components/topNav'
 import "./survey.css"
 import { BrowserProvider } from 'ethers';
+import { Link } from 'react-router-dom'; // Import the Link component
 
-function Survey({ userAddress: propsUserAddress }) {
+function Survey({ userAddress: propsUserAddress }){
   const [userAddress, setAddress] = useState("");
   const [ensName, setEnsName] = useState("");
 
@@ -54,11 +55,13 @@ function Survey({ userAddress: propsUserAddress }) {
 
   return (
     <div>
-      <NavigationBar />
-      <h1 className="header">Gnosis Survey</h1>
-      <p className="header">Done by: {ensName || userAddress}</p>
-      <form>
-        <div className="card">
+    <NavigationBar />
+    <div className="container">
+      <div className="bigcard">
+        <h1 className="header">Gnosis Survey</h1>
+        <p className="paragraph">Done by: {ensName || userAddress}</p>
+        <form>
+        <div className="scard">
           <label>1. Is Gnosis the most Decentralized Chain?</label>
           <div>
             <input
@@ -78,7 +81,7 @@ function Survey({ userAddress: propsUserAddress }) {
           </div>
         </div>
 
-        <div className='card'>
+        <div className='scard'>
           <label>2. How secure is POAP Protocol?</label>
           <div>
             <select
@@ -98,7 +101,7 @@ function Survey({ userAddress: propsUserAddress }) {
           </div>
         </div>
 
-        <div className='card'>
+        <div className='scard'>
           <label>3. Describe in your own words how is Gnosis the best</label>
           <div>
             <textarea
@@ -108,13 +111,18 @@ function Survey({ userAddress: propsUserAddress }) {
               rows="4"
               cols="43"
               placeholder="Type your answer here"
+              className='textarea'
             />
           </div>
         </div>
+        <Link to="/complete">
         <button type="submit" className="button">Submit</button>
-      </form>
+        </Link>
+        </form>
+      </div>
     </div>
+  </div>
   );
-}
-
+  }
+  
 export default Survey;
