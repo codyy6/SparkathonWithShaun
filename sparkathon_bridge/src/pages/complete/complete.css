@@ -1,0 +1,39 @@
+.circleimage-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    order: -1; /* Move the circleimage-container above the paragraph */
+  }
+  
+  .circleimage {
+    width: 400px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0;
+  }
+  
+  .header {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+    margin-top: 1rem; /* Adjust the margin-top to your preferred spacing */
+  }
+  
+  .paragraph {
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    margin-top: 2rem; /* Adjust the margin-top to your preferred spacing */
+  }
+  

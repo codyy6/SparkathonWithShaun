@@ -40,25 +40,25 @@ async function displayENSProfile(address) {
   const ensName = await provider.lookupAddress(address);
   setEnsName(ensName); // Update the state with the ENS name
 }
-    return ( 
-      <div>
-        <NavigationBar />
-        <div className="container">
-          <div className="card">
-            <Link to="/somewhere" className='cardLink'>
-              <h3><i><u>Gnosis Survey by Gnosis Team</u></i></h3>
-              <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
-            </Link>
-            </div>
-          <div className="card">
-          <Link to="/somewhere" className='cardLink'>
-            <h3><i><u>POAP Survey by POAP Team</u></i></h3>
-            <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
-          </Link>
-          </div>
+return ( 
+  <div>
+    <NavigationBar />
+    <div className="container">
+      <div className="card">
+        <Link to="/survey" className='cardLink'>
+          <h3><i><u>Gnosis Survey by Gnosis Team</u></i></h3>
+          <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
+        </Link>
         </div>
+      <div className="card">
+      <Link to="/survey" className='cardLink'>
+        <h3><i><u>POAP Survey by POAP Team</u></i></h3>
+        <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
+      </Link>
       </div>
-    );
+    </div>
+  </div>
+);
 }
 
 export default Main;

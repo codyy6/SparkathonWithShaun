@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './topNav.css';
 import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
-import gnosisLogo from "../images/gnosisLogo.png"
+import SurvowlHori from "../images/SurvOwlHori.png"
 
 
 const domain = window.location.host;
@@ -80,28 +80,28 @@ async function displayENSProfile(address) {
     );
   }
 
-  function DropdownMenu() {
-  return (
-    <div className='dropdown'>
-      <div className='dropdown-wrap'>
-        <Link to="/userprofile" className="dropdown-content">
-          <p> Profile </p>
-        </Link>
+  function DropdownMenu({ address }) {
+    return (
+      <div className='dropdown'>
+        <div className='dropdown-wrap'>
+          <a href={`https://app.poap.xyz/scan/${address}`} target="_blank" rel="noopener noreferrer" className="dropdown-content">
+            <p>Profile</p>
+          </a>
+        </div>
+        <div className='dropdown-wrap'>
+          <Link to="/" className="dropdown-content">
+            <p>Sign Out</p>
+          </Link>
+        </div>
       </div>
-      <div className='dropdown-wrap'>
-        <Link to="/" className="dropdown-content">
-          <p> Sign Out </p>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
+    );
+  }
+  
   return (
     <div className='wrap'>
       <div className="links">
         <Link to="/home">
-          <img src={gnosisLogo} className='logo'></img>
+          <img src={SurvowlHori} className='logo'></img>
         </Link>
       </div>
 
