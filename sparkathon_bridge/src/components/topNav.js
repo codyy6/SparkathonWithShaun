@@ -2,34 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './topNav.css';
 import { BrowserProvider } from 'ethers';
-import { SiweMessage } from 'siwe';
 import SurvowlHori from "../images/SurvOwlHori.png"
-
 
 const domain = window.location.host;
 const origin = window.location.origin;
-const provider = new BrowserProvider(window.ethereum);
-
-const BACKEND_ADDR = "http://localhost:3000";
-
-async function createSiweMessage(address, statement) {
-  const res = await fetch(`${BACKEND_ADDR}/nonce`, {
-    credentials: 'include',
-  });
-  const message = new SiweMessage({
-    domain,
-    address,
-    statement,
-    uri: origin,
-    version: '1',
-    chainId: '1',
-    nonce: await res.text()
-  });
-  return message.prepareMessage();
-}
-
-
-
 
 function TopNav() {
 
@@ -39,7 +15,6 @@ function TopNav() {
   
   useEffect(() => {
     // Perform this effect when the component mounts
-
     getInformation();
 }, []);
 
@@ -84,7 +59,7 @@ async function displayENSProfile(address) {
     return (
       <div className='dropdown'>
         <div className='dropdown-wrap'>
-          <a href={`https://app.poap.xyz/scan/${address}`} target="_blank" rel="noopener noreferrer" className="dropdown-content">
+          <a href={`https://app.poap.xyz/scan/${userAddress}`} target="_blank" rel="noopener noreferrer" className="dropdown-content">
             <p>Profile</p>
           </a>
         </div>

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { BrowserProvider } from 'ethers';
 import { SiweMessage } from 'siwe';
 import Logo from "../../images/survowlLogo.png";
@@ -12,6 +13,20 @@ const provider = new BrowserProvider(window.ethereum);
 let address;
 
 const BACKEND_ADDR = "http://localhost:3000";
+
+const networks = {
+  gnosis: {
+    chainId: `0x${Number(100).toString(16)}`,
+    chainName: "Gnosis Mainnet",
+    nativeCurrency: {
+      name: "xDai",
+      symbol: "XDAI",
+      decimals: 18
+    },
+    rpcUrls: ["https://rpc.ankr.com/gnosis"],
+    blockExplorerUrls: ["https://gnosisscan.io/"]
+  }
+}
 
 async function createSiweMessage(address, statement) {
   const res = await fetch(`${BACKEND_ADDR}/nonce`, {
@@ -29,16 +44,63 @@ async function createSiweMessage(address, statement) {
   return message.prepareMessage();
 }
 
+const changeNetwork = async ({ networkName, setError }) => {
+  try {
+    if (!window.ethereum) throw new Error("No crypto wallet found");
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [
+        {
+          ...networks[networkName]
+        }
+      ]
+    });
+  } catch (err) {
+    setError(err.message);
+  }
+};
+
+const networkChanged = (chainId) => {
+  console.log({ chainId });
+};
+
 function Main() {
+  const [error, setError] = useState();
+  const [networkSwitched, setNetworkSwitched] = useState(false); // Add a state variable to track network switch
+
+  useEffect(() => {
+    // Perform this effect when the component mounts
+    window.ethereum.on("chainChanged", networkChanged);
+    return () => {
+      window.ethereum.removeListener("chainChanged", networkChanged);
+    };
+  }, []);
+
+  const handleNetworkSwitch = async (networkName) => {
+    setError();
+    try {
+      await changeNetwork({ networkName, setError });
+      setNetworkSwitched(true); // Set the state to indicate successful network switch
+      connectToWallet();
+    } catch (err) {
+      console.error('Network switch failed:', err);
+      setNetworkSwitched(false); // Set the state to indicate network switch failure
+    }
+  };
+
   const navigate = useNavigate(); // Access the useNavigate hook within the component
 
-  async function SignInWithEthereum() {
+  async function connectToWallet() {
+    if (!networkSwitched) {
+      console.error('Network switch was not successful. Aborting connectToWallet.');
+      return;
+    }
     const signer = await provider.getSigner();
 
     address = await signer.getAddress()
     const message = await createSiweMessage(
       address,
-      'Sign in with Ethereum to the app.'
+      'Sign in with Gnosis to the app.'
     );
 
     try {
@@ -66,13 +128,16 @@ function Main() {
     }
   }
 
+  async function metamask(){
+    handleNetworkSwitch("gnosis");
+  }
   return (
     <div className='container'>
       <div className='center'>
         <img src={Logo} alt='Logo' />
       </div>
       <div className='center'>
-        <p onClick={SignInWithEthereum} className='connect'>
+        <p onClick={metamask} className='connect'>
           Connect Wallet
         </p>
         <img src={gnosisLogo} alt='Gnosis Logo' className='gnosis' />
