@@ -6,10 +6,11 @@ import axios from 'axios';
 
 function Main() {
   const [userAddress, setAddress] = useState("");
-  const [poapExist, setPoapExist] = useState(false);
+  const [poapExist, setPoapExist] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     getInformation();
   }, []);
 
@@ -56,7 +57,6 @@ function Main() {
   function isPoapExist() {
     if (poapExist === false) {
       navigate('/survey');
-      console.log("Testing navigation to /survey");
     } else {
       alert("Survey already done");
     }
@@ -67,16 +67,16 @@ function Main() {
       <NavigationBar />
       <div className="container">
         <div className="card">
-          <Link className='cardLink' onClick={isPoapExist}>
+          <div className='cardLink' onClick={isPoapExist}>
             <h3><i><u>Gnosis Survey by Gnosis Team</u></i></h3>
             <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
-          </Link>
+          </div>
         </div>
         <div className="card">
-          <Link to="/survey" className='cardLink'>
+          <div className='cardLink' onClick={isPoapExist}>
             <h3><i><u>POAP Survey by POAP Team</u></i></h3>
-            <p>A Survey to understand more about users' opinion on Gnosis Chain and potential future enhancement.</p>
-          </Link>
+            <p>A Survey to understand more about users' opinion on POAP and potential future enhancement.</p>
+          </div>
         </div>
       </div>
     </div>
